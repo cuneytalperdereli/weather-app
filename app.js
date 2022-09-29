@@ -14,6 +14,11 @@ const btn = document.querySelector(".submit")
 const cities = document.querySelectorAll(".city")
 
 
+localStorage.setItem("tokenKey","OlVzoqE10oPB970kJFt4TfVA1P2PjAaQRwmesOwmZJg=");
+
+
+
+
 //Default city when the page Loads
 
 let cityInput = "London";
@@ -69,9 +74,12 @@ function dayOfTheWeek(day,month,year){
 // function that fetches and displays the data from the weather API 
 function fetchWeatherData(){
 
+    const tokenKey =DecryptStringAES(localStorage.getItem("tokenKey"));
     
 
-   fetch(`http://api.weatherapi.com/v1/current.json?key=2d5af83771c14677ac2170635222809&q= ${cityInput}`)
+    
+
+   fetch(`http://api.weatherapi.com/v1/current.json?key=${tokenKey}&q= ${cityInput}`)
     .then(response =>response.json())
     .then(data => {
         console.log(data);
