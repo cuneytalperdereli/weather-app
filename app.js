@@ -79,7 +79,7 @@ function fetchWeatherData(){
 
     
 
-   fetch(`http://api.weatherapi.com/v1/current.json?key=${tokenKey}&q= ${cityInput}`)
+   fetch(`https://cors-everywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=${tokenKey}&q= ${cityInput}`)
     .then(response =>response.json())
     .then(data => {
         console.log(data);
